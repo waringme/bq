@@ -31,7 +31,7 @@ console.log(slugID.textContent);
  fetch(urlEndpoint)
     .then(response => response.json())
     .then(response => {
-      const {  image, type, description, furtherDetails} = response.data.assessmentList.items[0];
+      const {  image, type, description, furtherInformation} = response.data.lawnmowerInformationList.items[0];
       const imageURL = `${aem}${image._dynamicUrl}`;
 
       console.log(type);
@@ -40,8 +40,8 @@ console.log(slugID.textContent);
 
 console.log("description");
 console.log(description.html);
-console.log("furtherDetails");
-console.log(furtherDetails.html);
+console.log("furtherInformation");
+console.log(furtherInformation.html);
 
       destinationDiv.innerHTML = `
         <div class='destination-image'>
@@ -50,7 +50,7 @@ console.log(furtherDetails.html);
         <div class='destination-content'>
           <div class='destination-content-type'><h3>${type}</h3></div>
           <div class='destination-content-description'><h3>${description.html}</h3></div>
-           <div class='destination-content-further-details'>${furtherDetails.html}</div>
+           <div class='destination-content-further-information'>${furtherInformation.html}</div>
 
 
         </div>
