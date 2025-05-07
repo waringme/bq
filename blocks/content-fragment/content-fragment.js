@@ -36,7 +36,7 @@ console.log(slugID.textContent);
 
       console.log(type);
 
-      console.log("CTA");
+   
 
 console.log("description");
 console.log(description.html);
