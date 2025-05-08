@@ -23,8 +23,11 @@ export default function decorate(block) {
   block.querySelector('div:last-of-type').replaceWith(destinationDiv);
   console.log("Slug ID");  
 console.log(slugID.textContent);
-  const urlEndpoint = cors + aem + "/graphql/execute.json/bq/getPageBySlugAndVariation;slug=" + slugID.textContent +"?ck=1";
-  console.log(urlEndpoint);
+console.log(Date.now());
+
+//const urlEndpoint = cors + aem + "/graphql/execute.json/bq/getPageBySlugAndVariation;slug=" + slugID.textContent +"?ck=1";
+const urlEndpoint = cors + aem + "/graphql/execute.json/bq/getPageBySlugAndVariation;slug=1?ck=" + Date.now();
+console.log(urlEndpoint);
 
 // fetch('https://cors.cpilsworth.workers.dev/?target=https://publish-p150634-e1553296.adobeaemcloud.com/graphql/execute.json/nationwide/mortgage-offer-by-slug;slug=offer-1')
 
