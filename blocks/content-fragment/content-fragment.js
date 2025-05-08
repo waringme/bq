@@ -16,7 +16,7 @@ export default function decorate(block) {
   const slugID = document.createElement('div');
   slugID.id = 'slug';
   slugID.textContent = block.querySelector('div:nth-child(1)').textContent.trim();
-  block.querySelector('div:nth-child(1)').replaceWith(slugID);
+//  block.querySelector('div:nth-child(1)').replaceWith(slugID);
 
   const destinationDiv = document.createElement('div');
   destinationDiv.id = `destination-${slugID.textContent}`;
@@ -24,8 +24,7 @@ export default function decorate(block) {
   console.log("Slug ID");  
 console.log(slugID.textContent);
 console.log(Date.now());
-
-const urlEndpoint = cors + aem + "/graphql/execute.json/bq/getPageBySlugAndVariation;slug=" + slugID.textContent;
+const urlEndpoint = cors + aem + "/graphql/execute.json/bq/getPageBySlugAndVariation;slug=" + slugID.textContent +"?ck=" + Date.now();
 //const urlEndpoint = cors + aem + "/graphql/execute.json/bq/getPageBySlugAndVariation;slug=1?ck=34356";
 console.log(urlEndpoint);
 
@@ -34,7 +33,7 @@ console.log(urlEndpoint);
  fetch(urlEndpoint)
     .then(response => response.json())
     .then(response => {
-      const {  image, type, description} = response.data.lawnmowerInformationList.items[0];
+      const {  image, type, description, furtherInformation} = response.data.lawnmowerInformationList.items[0];
       const imageURL = `${aem}${image._dynamicUrl}`;
 
       console.log(type);
@@ -47,14 +46,15 @@ console.log(description.html);
 //console.log(furtherInformation.html);
 
       destinationDiv.innerHTML = `
-        <div class='destination-image'>
-          <img src="${imageURL}" alt="ssssssssssss">
-        </div>
-        <div class='destination-content'>
-          <div class='destination-content-type'><h3>${type}</h3></div>
-          <div class='destination-content-description'><h3>${description.html}</h3></div>
-  
-
+        <div class="textCommon section">
+          <div class="destination-content-type"><h3>${type}</h3></div>
+          <div class="destination-content-wrapper">
+            <div class="destination-image">
+              <img src="${imageURL}" alt="Lawnmower">
+            </div>
+            <div class="destination-content-description">${description.html}</div>
+          </div>
+          <div class="destination-content-further-information">${furtherInformation.html}</div>
         </div>
       `;
     })
