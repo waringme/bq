@@ -24,7 +24,7 @@ export default function decorate(block) {
   console.log("Slug ID");  
 console.log(slugID.textContent);
 console.log(Date.now()); 
-const urlEndpoint = cors + aem + "/graphql/execute.json/bq/getPageBySlugAndVariation;slug=" + slugID.textContent + "&ck=" + Date.now();
+const urlEndpoint = cors + aem + "/graphql/execute.json/bq/getPageBySlugAndVariation;slug=" + slugID.textContent;
 //const urlEndpoint = cors + aem + "/graphql/execute.json/bq/getPageBySlugAndVariation;slug=1?ck=34356";
 console.log(urlEndpoint);
 
