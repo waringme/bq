@@ -23,8 +23,8 @@ export default function decorate(block) {
   block.querySelector('div:last-of-type').replaceWith(destinationDiv);
   console.log("Slug ID");  
 console.log(slugID.textContent);
-console.log(Date.now());
-const urlEndpoint = aem + "/graphql/execute.json/bq/getPageBySlugAndVariation;slug=" + slugID.textContent;
+console.log(Date.now()); 
+const urlEndpoint = cors + aem + "/graphql/execute.json/bq/getPageBySlugAndVariation;slug=" + slugID.textContent;
 //const urlEndpoint = cors + aem + "/graphql/execute.json/bq/getPageBySlugAndVariation;slug=1?ck=34356";
 console.log(urlEndpoint);
 
