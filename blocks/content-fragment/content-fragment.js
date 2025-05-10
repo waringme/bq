@@ -30,7 +30,7 @@ console.log(urlEndpoint);
 
 // fetch('https://cors.cpilsworth.workers.dev/?target=https://publish-p150634-e1553296.adobeaemcloud.com/graphql/execute.json/nationwide/mortgage-offer-by-slug;slug=offer-1')
 
- fetch(urlEndpoint)
+ fetch(urlEndpoint, { mode: 'cors' })
     .then(response => response.json())
     .then(response => {
       const {  image, type, description, furtherInformation} = response.data.lawnmowerInformationList.items[0];
